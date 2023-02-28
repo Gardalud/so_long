@@ -13,13 +13,15 @@
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-#include <fcntl.h>
-#include <unistd.h>
-#include <sys/types.h>
-#include <sys/uio.h>
-#include <stdlib.h>
-#include <stdio.h>
-#include "./ft_printf/ft_printf.h"
+# include <fcntl.h>
+# include <unistd.h>
+# include <sys/types.h>
+# include <sys/uio.h>
+# include <stdlib.h>
+# include <stdio.h>
+# include "./ft_printf/ft_printf.h"
+# include "./get_next_line/get_next_line.h"
 
+int	read_map(char **argv);
 
 #endif

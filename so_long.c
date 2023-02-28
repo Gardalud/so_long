@@ -25,7 +25,20 @@ int	main(int argc, char **argv)
 {
 	//si il n'y as pas de fichier apres le ./aout
 	if(argc <= 1)
-	printf("Error\n You need a file!");
+	ft_printf("Error\n You need a file!");
+	read_map(argv);
 	return (0);
 }
+// lire la map pour ressortir ce qu'il y a dans le .ber
+int	read_map(char **argv)
+{
+	char	*map_readed;
+	int		fd;
 
+	map_readed = ft_calloc(1, 1);
+	fd = open(*argv, O_RDONLY);
+	while(get_next_line(fd) != NULL)
+		map_readed = get_next_line(fd);
+	ft_printf("%s", map_readed);
+	return (0);
+}
