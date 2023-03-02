@@ -8,7 +8,7 @@ FLAGS = -Wall -Wextra -Werror
 
 AR = ar crs
 
-RM = rm -f
+DELETE = rm -f
 
 LIBFT = libft
 
@@ -31,14 +31,15 @@ ${NAME}:					${OBJS}
 
 all:						${NAME}
 
-clean:						${RM} ${OBJS}
+clean:
+							${DELETE} ${OBJS}
 							make fclean -C ${LIBFT}
 							make fclean -C ${FT_PRINTF}
 							make fclean -C ${GNL}
 
-fclean:						clean
-							${RM} ${NAME}
+fclean:		clean
+							${DELETE} ${NAME}
 
-re:							clean fclean all
+re:							fclean all
 
 .PHONY:						all clean fclean re
