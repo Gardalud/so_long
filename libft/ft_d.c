@@ -1,17 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error_map.c                                          :+:      :+:    :+:   */
+/*   ft_d.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aschaefe <bguincha@student.42lausanne.ch>  +#+  +:+       +#+        */
+/*   By: bguincha <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/27 18:18:18 by bguincha          #+#    #+#             */
-/*   Updated: 2023/02/27 18:18:18 by bguincha         ###   ########.fr       */
+/*   Created: 2022/10/28 12:59:42 by bguincha          #+#    #+#             */
+/*   Updated: 2022/11/10 14:30:01 by bguincha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long"
+#include "libft.h"
 
-int	error_map(char **argv)
+int	ft_d(int d)
 {
+	int		i;
+	char	*str;
+
+	str = ft_itoa(d);
+	if (!str)
+		return (0);
+	ft_putstr_fd(str, 1);
+	i = ft_strlen(str);
+	free(str);
+	return (i);
 }

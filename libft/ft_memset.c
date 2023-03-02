@@ -1,26 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aschaefe <bguincha@student.42lausanne.ch>  +#+  +:+       +#+        */
+/*   By: bguincha <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/27 18:18:18 by bguincha          #+#    #+#             */
-/*   Updated: 2023/02/27 18:18:18 by bguincha         ###   ########.fr       */
+/*   Created: 2022/10/27 12:25:08 by bguincha          #+#    #+#             */
+/*   Updated: 2022/10/27 12:40:37 by bguincha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#include "libft.h"
 
-# include <fcntl.h>
-# include <unistd.h>
-# include <sys/types.h>
-# include <sys/uio.h>
-# include <stdlib.h>
-# include <stdio.h>
-# include "./libft/libft.h"
+void	*ft_memset(void *s, int c, size_t n)
+{
+	size_t			i;
+	unsigned char	*str;
 
-int	read_map(char **argv);
-
-#endif
+	i = 0;
+	str = (unsigned char *)s;
+	while (i < n)
+	{
+		str[i] = (unsigned char)c;
+		i++;
+	}
+	return (s);
+}

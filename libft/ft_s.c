@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   ft_s.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aschaefe <bguincha@student.42lausanne.ch>  +#+  +:+       +#+        */
+/*   By: bguincha <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/27 18:18:18 by bguincha          #+#    #+#             */
-/*   Updated: 2023/02/27 18:18:18 by bguincha         ###   ########.fr       */
+/*   Created: 2022/10/28 12:59:42 by bguincha          #+#    #+#             */
+/*   Updated: 2022/11/10 14:30:01 by bguincha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#include "libft.h"
 
-# include <fcntl.h>
-# include <unistd.h>
-# include <sys/types.h>
-# include <sys/uio.h>
-# include <stdlib.h>
-# include <stdio.h>
-# include "./libft/libft.h"
+int	ft_s(char *str)
+{
+	int	i;
 
-int	read_map(char **argv);
-
-#endif
+	if (!str)
+	{
+		ft_putstr_fd("(null)", 1);
+		return (6);
+	}
+	ft_putstr_fd(str, 1);
+	i = ft_strlen(str);
+	return (i);
+}

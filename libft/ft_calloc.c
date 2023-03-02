@@ -1,26 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aschaefe <bguincha@student.42lausanne.ch>  +#+  +:+       +#+        */
+/*   By: bguincha <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/27 18:18:18 by bguincha          #+#    #+#             */
-/*   Updated: 2023/02/27 18:18:18 by bguincha         ###   ########.fr       */
+/*   Created: 2022/10/28 14:19:31 by bguincha          #+#    #+#             */
+/*   Updated: 2022/10/28 14:51:12 by bguincha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#include "libft.h"
 
-# include <fcntl.h>
-# include <unistd.h>
-# include <sys/types.h>
-# include <sys/uio.h>
-# include <stdlib.h>
-# include <stdio.h>
-# include "./libft/libft.h"
+void	*ft_calloc(size_t count, size_t size)
+{
+	char	*ptr;
+	size_t	i;
 
-int	read_map(char **argv);
-
-#endif
+	i = 0;
+	ptr = malloc(count * size);
+	if (ptr == NULL)
+		return (0);
+	while (i < count * size)
+	{
+		ptr[i] = 0;
+		i++;
+	}
+	return (ptr);
+}
