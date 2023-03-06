@@ -29,7 +29,6 @@
 #  define BUFFER_SIZE 42
 # endif
 
-
 typedef struct s_list
 {
 	void			*content;
@@ -79,7 +78,6 @@ int		ft_find_return(char *str);
 char	*ft_delete_return(char *stash);
 char	*ft_strjoin_gnl(char *stash, char *buff);
 char	*ft_casier(int fd, char *stash);
-void	*ft_calloc(size_t count, size_t size);
 void	ft_bzero(void *s, size_t n);
 
 int		ft_c(int c);

@@ -22,5 +22,4 @@
 # include "./libft/libft.h"
 
 int	read_map(char **argv);
-
 #endif

@@ -60,7 +60,7 @@ void	ft_bzero(void *s, size_t n)
 		i++;
 	}
 }
-
+/*
 void	*ft_calloc(size_t count, size_t size)
 {
 	char	*ptr;
@@ -71,3 +71,4 @@ void	*ft_calloc(size_t count, size_t size)
 	ft_bzero(ptr, count * size);
 	return (ptr);
 }
+*/

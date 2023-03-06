@@ -46,8 +46,8 @@ SRCS =	ft_isalpha.c				\
 		ft_u.c						\
 		ft_x.c						\
 		ft_xmaj.c					\
-		ft_get_next_line.c			\
-		ft_get_next_line_utils.c	\
+		get_next_line.c				\
+		get_next_line_utils.c		\
 
 OBJS = ${SRCS:.c=.o}
 
