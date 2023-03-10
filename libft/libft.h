@@ -73,7 +73,6 @@ void	ft_putnbr_fd(int n, int fd);
 
 char	*get_next_line(int fd);
 char	*ft_strchr_findreturn(char *stash);
-size_t	ft_strlen(const char *str);
 int		ft_find_return(char *str);
 char	*ft_delete_return(char *stash);
 char	*ft_strjoin_gnl(char *stash, char *buff);
