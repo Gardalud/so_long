@@ -39,6 +39,7 @@ int	read_map(char *argv)
 	int		fd;
 
 	map_readed = ft_calloc(1, 1);
+	map_readed_end = ft_calloc(1, 1);
 	if(!map_readed)
 		return (0);
 	fd = open(argv, O_RDONLY);
@@ -72,11 +73,9 @@ int	ft_find_end(char *str)
 	i = 0;
 	while (str[i] != '\0')
 	{
-		//if (str[i] == '\0' && str[i - 1] == '1')
-		//	return (1);
+		if (str[i] == '\0' && str[i - 1] == '1')
+			return (1);
 		i++;
 	}
-	if (str[i] == '\0')
-		return (1);
 	return (0);
 }
