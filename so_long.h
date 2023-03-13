@@ -21,7 +21,9 @@
 # include <stdio.h>
 # include "./libft/libft.h"
 
-int	read_map(char *argv);
+char	*read_map(char *argv);
 int	ft_find_end(char *str);
+int	ft_size_line(char *map_readed_end);
+int	ft_line_number(char *map_readed_end);
 
 #endif
