@@ -25,5 +25,9 @@ char	*read_map(char *argv);
 int	ft_find_end(char *str);
 int	ft_size_line(char *map_readed_end);
 int	ft_line_number(char *map_readed_end);
+void	ft_find_exit(char *map_readed_end);
+void	ft_find_coin(char *map_readed_end);
+void	ft_find_spawn(char *map_readed_end);
+void	ft_find_line_egal(char *map_readed_end);
 
 #endif
