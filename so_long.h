@@ -22,11 +22,15 @@
 # include "./libft/libft.h"
 
 char	*read_map(char *argv);
-int	ft_size_line(char *map_readed_end);
-int	ft_line_number(char *map_readed_end);
+int		ft_size_line(char *map_readed_end);
+int		ft_line_number(char *map_readed_end);
 void	ft_find_exit(char *map_readed_end);
 void	ft_find_coin(char *map_readed_end);
 void	ft_find_spawn(char *map_readed_end);
+int		ft_walling_up_down(char *map_readed_end);
 void	ft_find_line_egal(char *map_readed_end);
+int		ft_walling_left_right(char *map_readed_end);
+char	**map_2d(char *map_readed_end);
+void	print_map(char **map, char *map_readed_end);
 
 #endif
