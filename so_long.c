@@ -27,8 +27,9 @@ int	main(int argc, char **argv)
 	char	*map_readed_end;
 	int		line;
 	int		size_one_line;
-	int		i;
+	int		x;
 
+	x = 0;
 	//si il n'y as pas de fichier apres le ./aout
 	if (argc <= 1)
 		ft_printf("Error\nYou need a file!\n");
@@ -52,7 +53,14 @@ int	main(int argc, char **argv)
 	ft_find_spawn(map_readed_end);
 	if (ft_walling_up_down(map_readed_end) == 0)
 		ft_walling_left_right(map_readed_end);
-	print_map(map_2d(map_readed_end), map_readed_end);
+	ft_algo_find_x(map_readed_end);
+	ft_algo_find_x_reverse(map_readed_end);
+	x = ft_algo_find_E(map_readed_end);
+	if (x ==0)
+		ft_printf("Error\nThe map is blocked!\n");
+	ft_search_coin(map_readed_end);
+	ft_printf("%d", x);
+	//print_map(map_2d(map_readed_end), map_readed_end);
 	//ft_printf("%s\n", map_readed_end);
 	return (0);
 }
@@ -294,9 +302,97 @@ void	print_map(char **map, char *map_readed_end)
 		x++;
 	}
 }
-
-//algorithme pour trouver chemin
-int	algo(char **tab)
+//remplacer le C et le 0 en x
+void	ft_algo_put_x(char *map_readed_end, int i)
 {
-	
+	int	x;
+
+	x = ft_size_line(map_readed_end);
+	if (map_readed_end[i - x] == 'C' || map_readed_end[i - x] == '0')
+		map_readed_end[i - x] = 'X';
+	if (map_readed_end[i + x] == 'C' || map_readed_end[i + x] == '0')
+		map_readed_end[i + x] = 'X';
+	if (map_readed_end[i + 1] == 'C' || map_readed_end[i + 1] == '0')
+		map_readed_end[i + 1] = 'X';
+	if (map_readed_end[i - 1] == 'C' || map_readed_end[i - 1] == '0')
+		map_readed_end[i - 1] = 'X';
+}
+// regarder si a la fin il reste un piece coincee
+int	ft_search_coin(char *map_readed_end)
+{
+	int	i;
+
+	i = 0;
+	while (map_readed_end[i] != '\0')
+	{
+		if (map_readed_end[i] == 'C')
+		{
+			ft_printf("Error\nAn Item is blocked!\n");
+			return (0);
+		}
+		i++;
+	}
+	return (0);
+}
+//trouver si la sortie est bloquêe
+int	ft_algo_find_E(char *map_readed_end)
+{
+	int	x;
+	int	i;
+
+	i = 0;
+	x = ft_size_line(map_readed_end);
+	while(map_readed_end[i] != '\0')
+	{
+		if (map_readed_end[i] == 'X')
+		{
+			if (map_readed_end[i + 1] == 'C' || map_readed_end[i + 1] == '0')
+				{
+					ft_algo_find_x(map_readed_end);
+					ft_algo_find_x_reverse(map_readed_end);
+				}
+			if (map_readed_end[i - x] == 'E')
+				return (1);
+			if (map_readed_end[i + x] == 'E')
+				return (1);
+			if (map_readed_end[i + 1] == 'E')
+				return (1);
+			if (map_readed_end[i - 1] == 'E')
+				return(1);
+		}
+		i++;
+	}
+	return (0);
+}
+//trouver le P pour le mettre en X et commencer a changer en x ++
+int	ft_algo_find_x(char *map_readed_end)
+{
+	int	i;
+
+	i = 0;
+	while(map_readed_end[i] != '\0')
+	{
+		if (map_readed_end[i] == 'P')
+			map_readed_end[i] = 'X';
+		if (map_readed_end[i] == 'X')
+			ft_algo_put_x(map_readed_end, i);
+		i++;
+	}
+	ft_printf("%s\n\n", map_readed_end);
+	return(0);
+}
+//commencer a changer en x --
+int	ft_algo_find_x_reverse(char *map_readed_end)
+{
+	int	i;
+
+	i = ft_strlen(map_readed_end);
+	while(i >= 0)
+	{
+		if (map_readed_end[i] == 'X')
+			ft_algo_put_x(map_readed_end, i);
+		i--;
+	}
+	ft_printf("%s\n\n", map_readed_end);
+	return(0);
 }
