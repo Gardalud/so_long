@@ -1,6 +1,9 @@
 NAME = so_long.a
 
-SRCS =		so_long.c	\
+SRCS =		so_long.c			\
+			verif_map_utils.c	\
+			verif_map_utils2.c	\
+			algorithme.c		\
 
 CC = gcc
 
