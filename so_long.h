@@ -21,23 +21,22 @@
 # include <stdio.h>
 # include "./libft/libft.h"
 
-char	*read_map(char *argv);
+char	*ft_read_map(char *argv);
 int		ft_size_line(char *map_readed_end);
 int		ft_line_number(char *map_readed_end);
-void	ft_find_exit(char *map_readed_end);
-void	ft_find_coin(char *map_readed_end);
-void	ft_find_spawn(char *map_readed_end);
+int		ft_find_exit(char *map_readed_end);
+int		ft_find_coin(char *map_readed_end);
+int		ft_find_spawn(char *map_readed_end);
 int		ft_walling_up_down(char *map_readed_end, int x, int y);
 int		ft_walling_left_right(char *map_readed_end);
-void	ft_find_line_egal(char *map_readed_end);
-char	**map_2d(char *map_readed_end);
+int		ft_find_line_egal(char *map_readed_end);
+//char	**map_2d(char *map_readed_end);
 int		ft_algo_find_x(char *map_readed_end);
 int		ft_algo_find_x_reverse(char *map_readed_end);
 void	ft_algo_put_x(char *map_readed_end, int i);
 int		ft_algo_find_e(char *map_readed_end);
 int		ft_search_coin(char *map_readed_end);
-char	*check_map(char **argv);
-int		check_map2(char *map_readed_end);
-int		check_argv(int argc, char **argv);
-void	print_map(char **map, char *map_readed_end);
+int		ft_check_map(char *map_readed_end);
+int		ft_check_argv(int argc, char **argv);
+//void	print_map(char **map, char *map_readed_end);
 #endif

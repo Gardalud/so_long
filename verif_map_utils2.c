@@ -13,7 +13,7 @@
 #include "so_long.h"
 
 // lire la map pour ressortir ce qu'il y a dans le .ber
-char	*read_map(char *argv)
+char	*ft_read_map(char *argv)
 {
 	char	*map_readed_end;
 	char	*map_readed;
