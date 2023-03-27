@@ -36,5 +36,8 @@ int		ft_algo_find_x_reverse(char *map_readed_end);
 void	ft_algo_put_x(char *map_readed_end, int i);
 int		ft_algo_find_e(char *map_readed_end);
 int		ft_search_coin(char *map_readed_end);
+char	*check_map(char **argv);
+int		check_map2(char *map_readed_end);
+int		check_argv(int argc, char **argv);
 void	print_map(char **map, char *map_readed_end);
 #endif

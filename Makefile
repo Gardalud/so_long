@@ -4,6 +4,7 @@ SRCS =		so_long.c			\
 			verif_map_utils.c	\
 			verif_map_utils2.c	\
 			algorithme.c		\
+			check_maps.c		\
 
 CC = gcc
 
