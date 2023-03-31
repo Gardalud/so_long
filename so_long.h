@@ -20,6 +20,23 @@
 # include <stdlib.h>
 # include <stdio.h>
 # include "./libft/libft.h"
+# include "./mlx/mlx.h"
+
+# define SPRITE	64
+
+typedef struct s_image
+{
+	void	*map;
+	void	*mlx;
+	void	*sol;
+	void	*mur;
+	void	*player;
+	void	*item;
+	void	*exit;
+	void	*exit_win;
+	int		x;
+	int		y;
+}				t_image;
 
 char	*ft_read_map(char *argv);
 int		ft_size_line(char *map_readed_end);
@@ -38,5 +55,7 @@ int		ft_algo_find_e(char *map_readed_end);
 int		ft_search_coin(char *map_readed_end);
 int		ft_check_map(char *map_readed_end);
 int		ft_check_argv(int argc, char **argv);
+int		ft_image_push(char *map_reaeded_end);
+int		ft_image_loading(t_image *image);
 //void	print_map(char **map, char *map_readed_end);
 #endif

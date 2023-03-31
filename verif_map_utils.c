@@ -109,7 +109,7 @@ int	ft_search_coin(char *map_readed_end)
 		if (map_readed_end[i] == 'C')
 		{
 			ft_printf("Error\nAn Item is blocked!\n");
-			return (0);
+			return (1);
 		}
 		i++;
 	}
