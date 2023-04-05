@@ -24,19 +24,22 @@
 
 # define SPRITE	64
 
-typedef struct s_image
+typedef struct	s_data
 {
-	void	*map;
 	void	*mlx;
-	void	*sol;
-	void	*mur;
+	void	*mlx_win;
 	void	*player;
+	void	*mur;
+	void	*sol;
 	void	*item;
 	void	*exit;
 	void	*exit_win;
 	int		x;
 	int		y;
-}				t_image;
+	int		x_map;
+	int		y_map;
+	int		i;
+}				t_data;
 
 char	*ft_read_map(char *argv);
 int		ft_size_line(char *map_readed_end);
@@ -55,7 +58,8 @@ int		ft_algo_find_e(char *map_readed_end);
 int		ft_search_coin(char *map_readed_end);
 int		ft_check_map(char *map_readed_end);
 int		ft_check_argv(int argc, char **argv);
-int		ft_image_push(char *map_reaeded_end);
-int		ft_image_loading(t_image *image);
+void	ft_image_push(t_data *so_long, char *map_readed_end);
+void	ft_image_load(t_data *so_long);
+void	ft_error_sprites(t_data *so_long);
 //void	print_map(char **map, char *map_readed_end);
 #endif

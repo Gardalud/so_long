@@ -15,22 +15,47 @@ AR = ar crs
 
 RM = rm -f
 
-LIBFT = libft
+#######################################
+#   MLX 
+
+MLXLIB = ./mlx/libmlx.a
+MLX = ./mlx
+MLX_C = make -C ${MLX}
+
+MINILBX = -Lmlx -lmlx -framework OpenGL -framework AppKit
+
+#######################################
+
+# libft
+
+LIBFTLIB = ./libft/libft.a
+LIBFT = ./libft
+LIBFT_C = make -C ${LIBFT}
+
+########################################
 
 OBJS = ${SRCS:.c=.o}
 
-.c.o:						${CC} ${FLAGS} -c $< -o ${<:.c=.o}
+.c.o:
+							${CC} ${FLAGS} -c $< -o $@
 
-${NAME}:					${OBJS}
-							make -C ${LIBFT}
-							cp ./libft/libft.a ${NAME}
+${NAME}:					${OBJS} ${MLXLIB} ${LIBFTLIB}
 							${AR} ${NAME} ${OBJS}
+							${CC} ${FLAGS} ${LIBFTLIB} ${MINILBX} ${NAME} 
+#							-o so_long
+
+${LIBFTLIB}:
+							${LIBFT_C}
+
+${MLXLIB}:
+							${MLX_C}
 
 all:						${NAME}
 
 clean:
 							${RM} ${OBJS}
 							make fclean -C ${LIBFT}
+							make clean -C ${MLX}
 
 fclean:		clean
 							${RM} ${NAME}

@@ -87,10 +87,12 @@ int	ft_find_line_egal(char *map_readed_end)
 {
 	int	j;
 	int	x;
+	int	i;
 
+	i = ft_strlen(map_readed_end);
 	x = ft_size_line(map_readed_end);
 	j = ft_line_number(map_readed_end);
-	if (((x * j) - 1) != ft_strlen(map_readed_end))
+	if (((x * j) - 1) != i)
 	{
 		ft_printf("Error\nA line of the map is not egal of the rest!\n");
 		return (1);
