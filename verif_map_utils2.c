@@ -19,6 +19,7 @@ char	*ft_read_map(char *argv)
 	char	*map_readed;
 	int		fd;
 
+	map_readed_end = NULL;
 	map_readed = ft_calloc(1, 1);
 	if (!map_readed)
 		return (0);
@@ -30,11 +31,11 @@ char	*ft_read_map(char *argv)
 	}
 	while (map_readed)
 	{
+		free(map_readed);
 		map_readed = get_next_line(fd);
 		if (map_readed)
 		{
 			map_readed_end = ft_strjoin_gnl(map_readed_end, map_readed);
-			free(map_readed);
 		}
 	}
 	close(fd);
