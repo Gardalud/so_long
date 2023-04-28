@@ -66,5 +66,5 @@ void	ft_game_move(char *map_readed_end,int key, t_data *so_long);
 int		ft_close(char *map_readed_end);
 int		ft_exit(char *map_readed_end);
 int		ft_player(char *map_readed_end);
-void	ft_image_push_hook(t_data *so_long, char *map_readed_end);
+void	ft_image_push_game(t_data *so_long, char *map_readed_end);
 #endif

@@ -27,7 +27,6 @@ void	ft_game_move(char *map_readed_end,int key, t_data *so_long)
 		{
 			map_readed_end[i + key] = 'P';
 			map_readed_end[i] = '0';
-			//mlx_put_image_to_window(so_long->mlx, so_long->mlx_win, so_long->player, 5 * SPRITE, 3 * SPRITE);
 		}
 	if (ft_calcul_coin(map_readed_end) == 0)
 		{
@@ -36,7 +35,8 @@ void	ft_game_move(char *map_readed_end,int key, t_data *so_long)
 		}
 	if (map_readed_end[i + key] == 'W')
 		ft_close(map_readed_end);
-	ft_printf("%s\n", map_readed_end);
+	//ft_printf("%s\n", map_readed_end);
+	ft_image_push_game(so_long, map_readed_end);
 }
 
 // setup des touches et partir pour bouger
@@ -103,4 +103,38 @@ int	ft_player(char *map_readed_end)
 	while (map_readed_end[i] != 'P')
 		i++;
 	return(i);
+}
+
+void	ft_image_push_game(t_data *so_long, char *map_readed_end)
+{
+	int	i;
+	int	x_map;
+	int	y_map;
+
+	i = 0;
+	x_map = 0;
+	y_map = 0;
+	while (map_readed_end[i] != '\0')
+	{
+		if (map_readed_end[i] == '1')
+			mlx_put_image_to_window(so_long->mlx, so_long->mlx_win, so_long->mur, x_map * SPRITE, y_map * SPRITE);
+		if (map_readed_end[i] == '0')
+			mlx_put_image_to_window(so_long->mlx, so_long->mlx_win, so_long->sol, x_map * SPRITE, y_map * SPRITE);
+		if (map_readed_end[i] == 'C')
+			mlx_put_image_to_window(so_long->mlx, so_long->mlx_win, so_long->item, x_map * SPRITE, y_map * SPRITE);
+		if (map_readed_end[i] == 'P')
+			mlx_put_image_to_window(so_long->mlx, so_long->mlx_win, so_long->player, x_map * SPRITE, y_map * SPRITE);
+		if (map_readed_end[i] == 'E')
+			mlx_put_image_to_window(so_long->mlx, so_long->mlx_win, so_long->exit, x_map * SPRITE, y_map * SPRITE);
+		if (map_readed_end[i] == 'W')
+			mlx_put_image_to_window(so_long->mlx, so_long->mlx_win, so_long->exit_win, x_map * SPRITE, y_map * SPRITE);
+		if (map_readed_end[i] == '\n')
+		{
+			y_map++;
+			x_map = 0;
+		}
+		else
+			x_map++;
+		i++;
+	}
 }
