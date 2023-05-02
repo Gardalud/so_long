@@ -40,6 +40,9 @@ typedef struct	s_data
 	int		x_map;
 	int		y_map;
 	int		i;
+	int		step;
+	int		horizontal;
+	int		vertical;
 }				t_data;
 
 char	*ft_read_map(char *argv);
@@ -56,16 +59,15 @@ int		ft_algo_find_x_reverse(char *map_readed_end);
 void	ft_algo_put_x(char *map_readed_end, int i);
 int		ft_algo_find_e(char *map_readed_end);
 int		ft_search_coin(char *map_readed_end);
-int		ft_check_map(char *map_readed_end);
+int		ft_check_map(char *map_readed_end, t_data *so_long);
 int		ft_check_argv(int argc, char **argv);
 void	ft_image_push(t_data *so_long);
 void	ft_image_load(t_data *so_long);
 void	ft_error_sprites(t_data *so_long);
 int		ft_calcul_coin(char *map_readed_end);
 int		ft_game_key(int key, t_data *so_long);
-void	ft_game_move(int key, t_data *so_long);
+int		ft_game_move(int key, t_data *so_long);
 int		ft_close(t_data *so_long);
 int		ft_exit(t_data *so_long);
 int		ft_player(char *map_readed_end);
-void	ft_image_push_game(t_data *so_long);
 #endif

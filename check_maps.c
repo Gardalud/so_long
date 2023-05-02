@@ -12,13 +12,10 @@
 
 #include "so_long.h"
 
-int	ft_check_map(char *map_readed_end)
+int	ft_check_map(char *map_readed_end, t_data *so_long)
 {
-	int		line;
-	int		size_one_line;
-
-	line = ft_line_number(map_readed_end);
-	size_one_line = ft_size_line(map_readed_end);
+	so_long->vertical = ft_line_number(map_readed_end);
+	so_long->horizontal = ft_size_line(map_readed_end);
 	if (ft_find_line_egal(map_readed_end) == 1)
 		return (1);
 	if (ft_find_exit(map_readed_end) == 1)
@@ -27,7 +24,7 @@ int	ft_check_map(char *map_readed_end)
 		return (1);
 	if (ft_find_spawn(map_readed_end) == 1)
 		return (1);
-	if (ft_walling_up_down(map_readed_end, size_one_line, line) == 1)
+	if (ft_walling_up_down(map_readed_end, so_long->horizontal, so_long->vertical) == 1)
 		return (1);
 	if (ft_walling_left_right(map_readed_end) == 1)
 		return (1);

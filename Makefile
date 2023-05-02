@@ -42,8 +42,7 @@ OBJS = ${SRCS:.c=.o}
 
 ${NAME}:					${OBJS} ${MLXLIB} ${LIBFTLIB}
 							${AR} ${NAME} ${OBJS}
-							${CC} ${FLAGS} ${LIBFTLIB} ${MINILBX} ${NAME} 
-#							-o so_long
+							${CC} ${FLAGS} ${LIBFTLIB} ${MINILBX} ${NAME} -o so_long
 
 ${LIBFTLIB}:
 							${LIBFT_C}
@@ -60,6 +59,7 @@ clean:
 
 fclean:		clean
 							${RM} ${NAME}
+							${RM} so_long
 
 re:							fclean all
 
