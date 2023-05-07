@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bguincha <marvin@42lausanne.ch>            +#+  +:+       +#+        */
+/*   By: bguincha <bguincha@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/27 13:39:15 by bguincha          #+#    #+#             */
-/*   Updated: 2022/11/02 10:56:10 by bguincha         ###   ########.fr       */
+/*   Created: 2023/02/28 18:18:18 by bguincha          #+#    #+#             */
+/*   Updated: 2023/02/28 18:18:18 by bguincha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

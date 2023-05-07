@@ -6,7 +6,7 @@ SRCS =		so_long.c			\
 			algorithme.c		\
 			check_maps.c		\
 			image.c				\
-			play_game.c			\
+			play_game.c
 
 CC = gcc
 
@@ -17,7 +17,16 @@ AR = ar crs
 RM = rm -f
 
 #######################################
-#   MLX 
+# Couleurs
+
+RED=\033[31m
+GREEN=\033[32m
+YELLOW=\033[33m
+BLUE=\033[34m
+RESET=\033[0m
+
+#######################################
+# MLX
 
 MLXLIB = ./mlx/libmlx.a
 MLX = ./mlx
@@ -26,8 +35,7 @@ MLX_C = make -C ${MLX}
 MINILBX = -Lmlx -lmlx -framework OpenGL -framework AppKit
 
 #######################################
-
-# libft
+# Libft
 
 LIBFTLIB = ./libft/libft.a
 LIBFT = ./libft
@@ -38,29 +46,33 @@ LIBFT_C = make -C ${LIBFT}
 OBJS = ${SRCS:.c=.o}
 
 .c.o:
-							${CC} ${FLAGS} -c $< -o $@
+	@${CC} ${FLAGS} -c $< -o $@
+	@echo "${GREEN}[OK]${RESET} Compilation de $<"
 
-${NAME}:					${OBJS} ${MLXLIB} ${LIBFTLIB}
-							${AR} ${NAME} ${OBJS}
-							${CC} ${FLAGS} ${LIBFTLIB} ${MINILBX} ${NAME} -o so_long
+${NAME}:	${OBJS} ${MLXLIB} ${LIBFTLIB}
+	@${AR} ${NAME} ${OBJS}
+	@${CC} ${FLAGS} ${LIBFTLIB} ${MINILBX} ${NAME} -o so_long
+	@echo "${GREEN}[OK]${RESET} Compilation terminée : ${BLUE}so_long${RESET}"
 
 ${LIBFTLIB}:
-							${LIBFT_C}
+	@${LIBFT_C}
 
 ${MLXLIB}:
-							${MLX_C}
+	@${MLX_C}
 
-all:						${NAME}
+all:	${NAME}
 
 clean:
-							${RM} ${OBJS}
-							make fclean -C ${LIBFT}
-							make clean -C ${MLX}
+	@${RM} ${OBJS}
+	@make fclean -C ${LIBFT}
+	@make clean -C ${MLX}
+	@echo "${GREEN}[OK]${RESET} Nettoyage terminé"
 
-fclean:		clean
-							${RM} ${NAME}
-							${RM} so_long
+fclean:	clean
+	@${RM} ${NAME}
+	@${RM} so_long
+	@echo "${GREEN}[OK]${RESET} Nettoyage complet"
 
-re:							fclean all
+re:		fclean all
 
-.PHONY:						all clean fclean re
+.PHONY:	all clean fclean re

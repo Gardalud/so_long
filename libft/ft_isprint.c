@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bguincha <marvin@42lausanne.ch>            +#+  +:+       +#+        */
+/*   By: bguincha <bguincha@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/27 12:24:59 by bguincha          #+#    #+#             */
-/*   Updated: 2022/10/27 12:40:21 by bguincha         ###   ########.fr       */
+/*   Created: 2023/02/28 18:18:18 by bguincha          #+#    #+#             */
+/*   Updated: 2023/02/28 18:18:18 by bguincha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
