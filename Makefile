@@ -6,7 +6,8 @@ SRCS =		so_long.c			\
 			algorithme.c		\
 			check_maps.c		\
 			image.c				\
-			play_game.c
+			play_game.c			\
+			play_game2.c		\
 
 CC = gcc
 

@@ -24,7 +24,7 @@
 
 # define SPRITE	64
 
-typedef struct	s_data
+typedef struct s_data
 {
 	void	*mlx;
 	void	*mlx_win;
@@ -36,13 +36,13 @@ typedef struct	s_data
 	void	*exit_win;
 	int		x;
 	int		y;
-	char	*map_copie;
+	char	*cpy_map;
 	int		x_map;
 	int		y_map;
 	int		i;
 	int		step;
-	int		horizontal;
-	int		vertical;
+	int		size_h;
+	int		size_v;
 }				t_data;
 
 char	*ft_read_map(char *argv);
@@ -59,7 +59,7 @@ int		ft_algo_find_x_reverse(char *map_readed_end);
 void	ft_algo_put_x(char *map_readed_end, int i);
 int		ft_algo_find_e(char *map_readed_end);
 int		ft_search_coin(char *map_readed_end);
-int		ft_check_map(char *map_readed_end, t_data *so_long);
+int		ft_check_map(char *map, t_data *so_long);
 int		ft_check_argv(int argc, char **argv);
 void	ft_image_push(t_data *so_long);
 void	ft_image_load(t_data *so_long);
@@ -70,4 +70,5 @@ int		ft_game_move(int key, t_data *so_long);
 int		ft_close(t_data *so_long);
 int		ft_exit(t_data *so_long);
 int		ft_player(char *map_readed_end);
+void	ft_image_put_to_window(t_data *so_long, void *sprite);
 #endif

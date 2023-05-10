@@ -12,33 +12,36 @@
 
 #include "so_long.h"
 
-int	ft_check_map(char *map_readed_end, t_data *so_long)
+// checker la possibilité d'erreur
+int	ft_check_map(char *map, t_data *so_long)
 {
-	so_long->vertical = ft_line_number(map_readed_end);
-	so_long->horizontal = ft_size_line(map_readed_end);
-	if (ft_find_line_egal(map_readed_end) == 1)
+	so_long->size_v = ft_line_number(map);
+	so_long->size_h = ft_size_line(map);
+	if (ft_find_line_egal(map) == 1 || ft_find_coin(map) == 1)
 		return (1);
-	if (ft_find_exit(map_readed_end) == 1)
+	if (ft_find_exit(map) == 1 || ft_find_spawn(map) == 1)
 		return (1);
-	if (ft_find_coin(map_readed_end) == 1)
+	if (ft_walling_up_down(map, so_long->size_h, so_long->size_v) == 1)
 		return (1);
-	if (ft_find_spawn(map_readed_end) == 1)
+	if (ft_walling_left_right(map) == 1)
 		return (1);
-	if (ft_walling_up_down(map_readed_end, so_long->horizontal, so_long->vertical) == 1)
-		return (1);
-	if (ft_walling_left_right(map_readed_end) == 1)
-		return (1);
-	if (ft_algo_find_e(map_readed_end) == 0)
+	if (ft_algo_find_e(map) == 0)
 	{
 		ft_printf("Error\nThe map is blocked!\n");
 		return (1);
 	}
-	if (ft_search_coin(map_readed_end) == 1)
+	if (ft_search_coin(map) == 1)
 		return (1);
-	free(map_readed_end);
+	if (so_long->size_h * SPRITE > 1920 || so_long->size_v > 1080)
+	{
+		ft_printf("Error\nThe map is too big!\n");
+		return (1);
+	}
+	free(map);
 	return (0);
 }
 
+//checker la possibilité d'erreur argc argv
 int	ft_check_argv(int argc, char **argv)
 {
 	int	i;
@@ -66,39 +69,3 @@ int	ft_check_argv(int argc, char **argv)
 	}
 	return (0);
 }
-
-/*// mettre la map dans un tableau
-char	**map_2d(char *map_readed_end)
-{
-	char	**tab;
-	int		i;
-	int		x;
-	int		y;
-	int		line;
-	int		col;
-
-	i = 0;
-	x = 0;
-	y = 0;
-	line = ft_size_line(map_readed_end);
-	col = ft_line_number(map_readed_end);
-	tab = malloc(line * sizeof(char *));
-	while (i <= line)
-	{
-		tab[i] = malloc(col * sizeof(char));
-		i++;
-	}
-	i = 0;
-	while (map_readed_end[i] != '\0')
-	{
-		tab[x][y] = map_readed_end[i];
-		y++;
-		if (y == col)
-		{
-			y = 0;
-			x++;
-		}
-		i++;
-	}
-	return (tab);
-}*/

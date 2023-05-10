@@ -22,21 +22,19 @@ char	*ft_read_map(char *argv)
 	map_readed_end = NULL;
 	map_readed = ft_calloc(1, 1);
 	if (!map_readed)
-		return (0);
+		return (NULL);
 	fd = open(argv, O_RDONLY);
 	if (fd == -1)
 	{
 		ft_printf("Error\nFailed to open file!\n");
-		return (0);
+		return (NULL);
 	}
 	while (map_readed)
 	{
 		free(map_readed);
 		map_readed = get_next_line(fd);
 		if (map_readed)
-		{
 			map_readed_end = ft_strjoin_gnl(map_readed_end, map_readed);
-		}
 	}
 	close(fd);
 	return (map_readed_end);
