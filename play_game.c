@@ -34,7 +34,7 @@ int	ft_game_move(int key, t_data *so_long)
 	if (so_long->cpy_map[i + key] == 'W')
 	{
 		so_long->step++;
-		ft_printf("Well play! You did only %d steps!\n");
+		ft_printf("Well play! You did only %d steps!\n", so_long->step);
 		ft_close(so_long);
 	}
 	ft_printf("step %d\n", so_long->step);
