@@ -48,13 +48,13 @@ int	ft_game_key(int key, t_data *so_long)
 	int	i;
 
 	i = 0;
-	if (key == 0x0D || key == 0x48)
+	if (key == 0x0D || key == 0x7E)
 		i = i - so_long->size_h;
-	if (key == 0x01 || key == 0x50)
+	if (key == 0x01 || key == 0x7D)
 		i = i + so_long->size_h;
-	if (key == 0x00 || key == 0x4B)
+	if (key == 0x00 || key == 0x7B)
 		i = i - 1;
-	if (key == 0x02 || key == 0x4D)
+	if (key == 0x02 || key == 0x7C)
 		i = i + 1;
 	if (key == 0x35)
 		ft_close(so_long);
