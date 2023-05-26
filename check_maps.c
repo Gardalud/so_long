@@ -17,13 +17,14 @@ int	ft_check_map(char *map, t_data *so_long)
 {
 	so_long->size_v = ft_line_number(map);
 	so_long->size_h = ft_size_line(map);
+	so_long->cpy_map = ft_strdup(map);
 	if (ft_find_line_egal(map) == 1 || ft_find_coin(map) == 1)
 		return (1);
 	if (ft_find_exit(map) == 1 || ft_find_spawn(map) == 1)
 		return (1);
 	if (ft_walling_up_down(map, so_long->size_h, so_long->size_v) == 1)
 		return (1);
-	if (ft_walling_left_right(map) == 1)
+	if (ft_walling_left_right(map) == 1 || ft_check_alpha(map, so_long) == 1)
 		return (1);
 	if (ft_algo_find_e(map) == 0)
 	{
@@ -65,6 +66,33 @@ int	ft_check_argv(int argc, char **argv)
 	if (x == 1)
 	{
 		ft_printf("Error\nThe file is not a .ber!\n");
+		return (1);
+	}
+	return (0);
+}
+
+int	ft_check_alpha(char *map, t_data *so_long)
+{
+	int	i;
+	int	ret;
+
+	so_long->step = 0;
+	i = 0;
+	ret = 0;
+	while (map[i] != '\0')
+	{
+		if (map[i] == '1' || map[i] == '0')
+			ret++;
+		if (map[i] == 'C' || map[i] == 'E')
+			ret++;
+		if (map[i] == 'P' || map[i] == '\n')
+			ret++;
+		i++;
+	}
+	ret++;
+	if (ret != (so_long->size_h * so_long->size_v))
+	{
+		ft_printf("Error\nThe map need to have only 1,0,C,P,E!\n");
 		return (1);
 	}
 	return (0);

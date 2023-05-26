@@ -17,7 +17,6 @@ int	main(int argc, char **argv)
 	char	*map;
 	t_data	so_long;
 
-	so_long.step = 0;
 	if (ft_check_argv(argc, argv) != 0)
 		return (0);
 	map = ft_read_map(argv[1]);
@@ -27,9 +26,11 @@ int	main(int argc, char **argv)
 		ft_printf("Error\nThe map is empty!\n");
 		return (0);
 	}
-	so_long.cpy_map = ft_strdup(map);
 	if (ft_check_map(map, &so_long) != 0)
+	{
+		free(so_long.cpy_map);
 		return (0);
+	}
 	so_long.mlx = mlx_init();
 	so_long.mlx_win = mlx_new_window(so_long.mlx, (so_long.size_h - 1) \
 	* SPRITE, so_long.size_v * SPRITE, "so_long");

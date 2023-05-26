@@ -71,4 +71,5 @@ int		ft_close(t_data *so_long);
 int		ft_exit(t_data *so_long);
 int		ft_player(char *map_readed_end);
 void	ft_image_put_to_window(t_data *so_long, void *sprite);
+int		ft_check_alpha(char *map, t_data *so_long);
 #endif
