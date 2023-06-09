@@ -18,7 +18,6 @@ AR = ar crs
 RM = rm -f
 
 #######################################
-# Couleurs
 
 RED=\033[31m
 GREEN=\033[32m
@@ -27,7 +26,7 @@ BLUE=\033[34m
 RESET=\033[0m
 
 #######################################
-# MLX
+#   MLX 
 
 MLXLIB = ./mlx/libmlx.a
 MLX = ./mlx
@@ -36,7 +35,8 @@ MLX_C = make -C ${MLX}
 MINILBX = -Lmlx -lmlx -framework OpenGL -framework AppKit
 
 #######################################
-# Libft
+
+# libft
 
 LIBFTLIB = ./libft/libft.a
 LIBFT = ./libft
@@ -47,33 +47,35 @@ LIBFT_C = make -C ${LIBFT}
 OBJS = ${SRCS:.c=.o}
 
 .c.o:
-	@${CC} ${FLAGS} -c $< -o $@
-	@echo "${GREEN}[OK]${RESET} Compilation de $<"
+							@${CC} ${FLAGS} -c $< -o $@ > /dev/null
 
-${NAME}:	${OBJS} ${MLXLIB} ${LIBFTLIB}
-	@${AR} ${NAME} ${OBJS}
-	@${CC} ${FLAGS} ${LIBFTLIB} ${MINILBX} ${NAME} -o so_long
-	@echo "${GREEN}[OK]${RESET} Compilation terminée : ${BLUE}so_long${RESET}"
+${NAME}:					${OBJS} ${MLXLIB} ${LIBFTLIB}
+							@${AR} ${NAME} ${OBJS} > /dev/null
+							@${CC} ${FLAGS} ${LIBFTLIB} ${MINILBX} ${NAME} -o so_long 2> /dev/null
+							@echo "${YELLOW} Compilation réussie:${GREEN}[ok] ${RESET}"
 
 ${LIBFTLIB}:
-	@${LIBFT_C}
+							@${LIBFT_C} > /dev/null
+							@echo "${YELLOW} Compilation libft:${GREEN}[ok] ${RESET}"
 
 ${MLXLIB}:
-	@${MLX_C}
+							@${MLX_C} > /dev/null
+							@echo "${YELLOW} Compilation MLX:${GREEN}[ok] ${RESET}"
 
-all:	${NAME}
+all:						${NAME}
 
 clean:
-	@${RM} ${OBJS}
-	@make fclean -C ${LIBFT}
-	@make clean -C ${MLX}
-	@echo "${GREEN}[OK]${RESET} Nettoyage terminé"
+							@${RM} ${OBJS} > /dev/null
+							@make fclean -C ${LIBFT} > /dev/null
+							@make clean -C ${MLX} > /dev/null
+							@echo "${YELLOW} Nettoyage libft:${GREEN}[ok] ${RESET}"
+							@echo "${YELLOW} Nettoyage MLX:${GREEN}[ok] ${RESET}"
 
-fclean:	clean
-	@${RM} ${NAME}
-	@${RM} so_long
-	@echo "${GREEN}[OK]${RESET} Nettoyage complet"
+fclean:		clean
+							@${RM} ${NAME} > /dev/null
+							@${RM} so_long >/dev/null
+							@echo "${YELLOW} Nettoyage complet de so_long:${GREEN}[ok] ${RESET}"
 
-re:		fclean all
+re:							fclean all
 
-.PHONY:	all clean fclean re
+.PHONY:						all clean fclean re   
